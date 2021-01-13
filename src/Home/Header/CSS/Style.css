@@ -1,0 +1,26 @@
+.links {
+    color: white;
+    text-decoration: none;
+    font-size: small;
+}
+
+
+.linksRight{
+    color: black;
+    text-decoration: none;
+    font-size: small;
+}
+
+.menuIcon {
+    color: white; 
+    border: 1px solid white;
+    border-radius: 15%;
+}
+
+
+.form {
+    width: 150px; 
+    height: 30px; 
+    border: 1px solid navy;
+}
+
