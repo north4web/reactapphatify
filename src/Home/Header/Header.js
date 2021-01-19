@@ -24,7 +24,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import Style from '../Header/CSS/Style.css' 
+import Style from '../CSS/Style.css' 
 
 
 const useStyles = makeStyles((theme) => ({
@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
   sectionMobile: {
     display: 'flex',
     [theme.breakpoints.up('md')]: {
-      display: 'none',
+      display: 'flex',
     },
   },
   list: {
@@ -142,8 +142,8 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link className="linksRight" to="/SignIn">SignIn</Link></MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link className="linksRight" to="/Dashboard">Dashboard</Link></MenuItem>
     </Menu>
   );
 
@@ -234,48 +234,9 @@ const toggleDrawer = (anchor, open) => (event) => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <MenuItem>
-      <IconButton color="inherit">
-          <Badge color="secondary">
-          <Link className="linksRight"  to="/">Home</Link>
-          </Badge>
-        </IconButton>
-        </MenuItem>
-        <MenuItem>
-        <IconButton color="inherit">
-          <Badge color="secondary">
-          <Link className="linksRight" to="/About">About</Link>
-          </Badge>
-        </IconButton>
-        </MenuItem>
-        <MenuItem>
-        <IconButton color="inherit">
-          <Badge color="secondary">
-          <Link className="linksRight" to="/Contact">Contact</Link>
-          </Badge>
-        </IconButton>
-        </MenuItem>
-        <MenuItem>
-      <IconButton>
-              
-              <SearchIcon style={{color: "black"}}/>
-             
-              </IconButton>
-              <p className="linksRight">Search</p>
-              </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p className="linksRight">Profile</p>
-      </MenuItem>
-      {/* <List>
-        {['Home', 'About', 'Contact'].map((text, index) => (
+      
+      <List>
+        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
@@ -290,7 +251,7 @@ const toggleDrawer = (anchor, open) => (event) => {
             <ListItemText primary={text} />
           </ListItem>
         ))}
-      </List> */}
+      </List>
     </div>
   );
   return (
@@ -314,8 +275,11 @@ const toggleDrawer = (anchor, open) => (event) => {
       ))}
             
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap style={{fontSize: "2.5em"}}>
-            <spam style={{color: "gold", fontWeight: "bold"}}>h</spam><spam style={{fontSize: "1.3em"}}>AT</spam>ify
+
+          <Typography className={classes.title} variant="h6" noWrap style={{fontSize: "2.5em", display: "block"}}>
+          
+          <Link style={{textDecoration:"none", color: "white"}} to="/">
+            <spam style={{color: "gold", fontWeight: "bold"}}>h</spam><spam style={{fontSize: "1.1em"}}>AT</spam>ify</Link>
           </Typography>
           
           
@@ -326,6 +290,7 @@ const toggleDrawer = (anchor, open) => (event) => {
             <Badge color="secondary">
                 <Link className="links" to="/">Home</Link>
               </Badge>
+              
               </IconButton>
              
               <IconButton>
@@ -369,8 +334,17 @@ const toggleDrawer = (anchor, open) => (event) => {
               <IconButton>
               <Badge color="secondary">
               <SearchIcon style={{color: "white"}}/>
+              <InputBase style={{fontSize: "medium", backgroundColor: "white"}}
+              placeholder="Search..."
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
               </Badge>
               </IconButton>
+              
 
 
             <IconButton

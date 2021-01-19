@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import Header from '../Header'
-import Style from '../CSS/Style.css'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
+
 
 function Contact() {
 
@@ -24,9 +25,10 @@ function Contact() {
         return(
             <div>
                 <Header />
-                This is the Contact component.
-
-<h1>Please Fill in the form</h1>
+                
+<div style={{margin:"15px"}}>
+<h3>To contact us, please Fill in the form</h3>
+<p></p>
 
 <p>Name: <input type="text" className="form" id="brand" onChange = {updateState}/></p>
 <p>Email: <input type="email" className="form" id="color" onChange = {updateState}/>  </p>
@@ -35,11 +37,13 @@ function Contact() {
 {/* <h3 style={{color: 'navy'}}>{carBrand}, {color}, from {year}</h3> */}
 
 
-<button onClick={getData}>GetData</button>
+<button onClick={getData}>Send</button>
 
 
 <h4 style={{color: 'navy'}}>{state.brand} {state.color} {state.year}</h4>
+</div>
 
+<Footer /> 
             </div>
         )
     }
